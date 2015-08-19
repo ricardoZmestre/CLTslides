@@ -18,7 +18,7 @@ The Central Limit Theorem (**CLT**) postulates that the mean of samples of indep
 $$x \sim N(\mu, \frac{\sigma ^ 2}{n})$$
 where $\mu$ is the mean of the distribution, $\sigma ^ 2$ its variance and $n$ the size of the sample.
 
-NB: the code for this presentation can be found [here](https://github.com/ricardoZmestre/CLTslides).
+NB: the code for this presentation can be found [here](https://github.com/ricardoZmestre/CLTslides/tree/gh-pages).
 
 --- .class #id 
 
