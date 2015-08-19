@@ -32,7 +32,7 @@ In all cases, for simplicity, the size of each simulated sample is 20. The highe
 
 The chosen distribution and sample size is simulated for as many times as the chosen number of draws, and the mean is calculated for each draw, giving as many means as number of draws. This set of means should be distributed approximately as a normal.
 
-To see plots illustrating the CLT, open the application and go to the second tab on the right ("Distribution of means (CLT)").
+To see plots illustrating the CLT, open the application and click on the second tab on the right ("Distribution of means (CLT)").
 
 To see the meaning of input parameters for the distributions, go to the rightmost tab ("Further details").
 
