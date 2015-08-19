@@ -1,0 +1,91 @@
+---
+title       : CLT demonstration
+subtitle    : 
+author      : ricardoZmestre
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [mathjax]     # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## The Central Limit Theorem
+
+The Central Limit Theorem (**CLT**) postulates that the mean of samples of independent and identically distributed (**IID**) random variables of known distribution are approximately distributed as normal IID variables with mean equal to the mean of the original distribution and variance equal to the variance of the distribution divided by the size of each sample: 
+
+$$x \sim N(\mu, \frac{\sigma ^ 2}{n})$$
+where $\mu$ is the mean of the distribution, $\sigma ^ 2$ its variance and $n$ the size of the sample.
+
+NB: the code for this presentation can be found [here](https://github.com/ricardoZmestre/CLTslides).
+
+--- .class #id 
+
+## The exercise
+
+The Shiny application [here](https://ricardozmestre.shinyapps.io/clt1) illustrates the CLT for three different distributions and three different number of draws. The distributions are the normal one, the exponential one and the binomial one; the number of draws are 100, 1,000 and 10,000.
+
+In all cases, for simplicity, the size of each simulated sample is 20. The higher the number of draws, the better the means of the draws approximate a normal distribution.
+
+### Procedure
+
+The chosen distribution and sample size is simulated for as many times as the chosen number of draws, and the mean is calculated for each draw, giving as many means as number of draws. This set of means should be distributed approximately as a normal.
+
+To see plots illustrating the CLT, open the application and go to the second tab on the right ("Distribution of means (CLT)").
+
+To see the meaning of input parameters for the distributions, go to the rightmost tab ("Further details").
+
+---
+
+## The underlying distributions
+
+The parameters to input depend on the underlying distribution.
+
+For the normal distribution, the mean $\mu$ and the standard error $\sigma$ are needed.
+
+For the exponential distribution, a parameter $\lambda$ is needed, indicating the rate of decay in the probability of an event occuring as time goes by. The corresponding mean and standard error are both $\frac{1}{\lambda}$.
+
+For the binomial distribution, two parameters are needed: the number of instances the random variable has been observed (the size), $n$, and the probability of a given event happening, $p$. The corresponding mean and standard error are $n p$ and $\sqrt{n p (1 - p)}$, respectively.
+
+NB: The standard error of the simulated means are the given standard errors divided by $\sqrt{n}$.
+
+---
+
+## Example with normal distribution 
+
+The chart shows 100 and 10,000 means from samples of 20 normal $N(0,1)$ random variables, against the PDF of their theoretical $N(0,\frac{1}{\sqrt{20}})$, in red.
+
+```{r charts, echo=FALSE, fig.height=6, fig.width=6.5}
+
+n.obs <- 20
+n.sample <- 10000
+n.mean <- 0
+n.sd <- 1
+
+set.seed(1234)
+
+# 100 simulations
+
+means <- apply(matrix(rnorm(n.sample*n.obs, mean=n.mean, sd=n.sd),
+    nrow=n.obs, ncol=n.sample), 2, mean)
+
+hist(means[1:100], main='Histogram of means of draws', xlab='100 simulations', prob=TRUE)
+
+true.mean <- n.mean
+true.sd <- n.sd/sqrt(n.obs)
+
+curve(dnorm(x, mean=true.mean, sd=true.sd), col='red', lty=1, lwd=2, add=TRUE)
+
+# 10,000 simulations
+
+hist(means, main='Histogram of means of draws', xlab='10,000 simulations', prob=TRUE)
+
+true.mean <- n.mean
+true.sd <- n.sd/sqrt(n.obs)
+
+curve(dnorm(x, mean=true.mean, sd=true.sd), col='red', lty=1, lwd=2, add=TRUE)
+
+```
+
+

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CLT demonstration</title>
+  <meta charset="utf-8">
+  <meta name="description" content="CLT demonstration">
+  <meta name="author" content="ricardoZmestre">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>CLT demonstration</h1>
+    <h2></h2>
+    <p>ricardoZmestre<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>The Central Limit Theorem</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The Central Limit Theorem (<strong>CLT</strong>) postulates that the mean of samples of independent and identically distributed (<strong>IID</strong>) random variables of known distribution are approximately distributed as normal IID variables with mean equal to the mean of the original distribution and variance equal to the variance of the distribution divided by the size of each sample: </p>
+
+<p>\[x \sim N(\mu, \frac{\sigma ^ 2}{n})\]
+where \(\mu\) is the mean of the distribution, \(\sigma ^ 2\) its variance and \(n\) the size of the sample.</p>
+
+<p>NB: the code for this presentation can be found <a href="https://github.com/ricardoZmestre/CLTslides">here</a>.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>The exercise</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The Shiny application <a href="https://ricardozmestre.shinyapps.io/clt1">here</a> illustrates the CLT for three different distributions and three different number of draws. The distributions are the normal one, the exponential one and the binomial one; the number of draws are 100, 1,000 and 10,000.</p>
+
+<p>In all cases, for simplicity, the size of each simulated sample is 20. The higher the number of draws, the better the means of the draws approximate a normal distribution.</p>
+
+<h3>Procedure</h3>
+
+<p>The chosen distribution and sample size is simulated for as many times as the chosen number of draws, and the mean is calculated for each draw, giving as many means as number of draws. This set of means should be distributed approximately as a normal.</p>
+
+<p>To see plots illustrating the CLT, open the application and go to the second tab on the right (&quot;Distribution of means (CLT)&quot;).</p>
+
+<p>To see the meaning of input parameters for the distributions, go to the rightmost tab (&quot;Further details&quot;).</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>The underlying distributions</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The parameters to input depend on the underlying distribution.</p>
+
+<p>For the normal distribution, the mean \(\mu\) and the standard error \(\sigma\) are needed.</p>
+
+<p>For the exponential distribution, a parameter \(\lambda\) is needed, indicating the rate of decay in the probability of an event occuring as time goes by. The corresponding mean and standard error are both \(\frac{1}{\lambda}\).</p>
+
+<p>For the binomial distribution, two parameters are needed: the number of instances the random variable has been observed (the size), \(n\), and the probability of a given event happening, \(p\). The corresponding mean and standard error are \(n p\) and \(\sqrt{n p (1 - p)}\), respectively.</p>
+
+<p>NB: The standard error of the simulated means are the given standard errors divided by \(\sqrt{n}\).</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Example with normal distribution</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The chart shows 100 and 10,000 means from samples of 20 normal \(N(0,1)\) random variables, against the PDF of their theoretical \(N(0,\frac{1}{\sqrt{20}})\), in red.</p>
+
+<p><img src="assets/fig/charts-1.png" alt="plot of chunk charts"> <img src="assets/fig/charts-2.png" alt="plot of chunk charts"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='The Central Limit Theorem'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='The exercise'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='The underlying distributions'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Example with normal distribution'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
