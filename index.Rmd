@@ -26,7 +26,7 @@ NB: the code for this presentation can be found [here](https://github.com/ricard
 
 The Shiny application [here](https://ricardozmestre.shinyapps.io/clt1) illustrates the CLT for three different distributions and three different number of draws. The distributions are the normal one, the exponential one and the binomial one; the number of draws are 100, 1,000 and 10,000.
 
-In all cases, for simplicity, the size of each simulated sample is 20. The higher the number of draws, the better the means of the draws approximate a normal distribution.
+In all cases, for simplicity, the size of each simulated sample is kept fixed at 20. The higher the number of draws, the better the means of the draws approximate a normal distribution.
 
 ### Procedure
 
@@ -44,7 +44,7 @@ The parameters to input depend on the underlying distribution.
 
 For the normal distribution, the mean $\mu$ and the standard error $\sigma$ are needed.
 
-For the exponential distribution, a parameter $\lambda$ is needed, indicating the rate of decay in the probability of an event occuring as time goes by. The corresponding mean and standard error are both $\frac{1}{\lambda}$.
+For the exponential distribution, a parameter $\lambda$ is needed, indicating the rate of decay in the probability of an event occuring as time goes by. This parameter is called rate in the entry panel. The corresponding mean and standard error are both $\frac{1}{\lambda}$.
 
 For the binomial distribution, two parameters are needed: the number of instances the random variable has been observed (the size), $n$, and the probability of a given event happening, $p$. The corresponding mean and standard error are $n p$ and $\sqrt{n p (1 - p)}$, respectively.
 
@@ -54,7 +54,7 @@ NB: The standard error of the simulated means are the given standard errors divi
 
 ## Example with normal distribution 
 
-The chart shows 100 and 10,000 means from samples of 20 normal $N(0,1)$ random variables, against the PDF of their theoretical $N(0,\frac{1}{\sqrt{20}})$, in red.
+The chart shows 100 and 10,000 means from respective draws of 20 normal $N(0,1)$ random variables, against the PDF of their theoretical $N(0,\frac{1}{\sqrt{20}})$, in red. The Shiny application allows similar plots for different combinations of user choices.
 
 ```{r charts, echo=FALSE, fig.height=6, fig.width=6.5}
 
